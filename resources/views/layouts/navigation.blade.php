@@ -31,9 +31,6 @@
                     <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
-                    {{-- <x-nav-link :href="route('ambiente.index')" :active="request()->routeIs('ambiente.index')">
-                        {{ __('Ambientes') }}
-                    </x-nav-link> --}}
                 </div>
             </div>
 
