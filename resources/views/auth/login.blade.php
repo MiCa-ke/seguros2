@@ -1,7 +1,11 @@
+
 <x-guest-layout>
     <x-auth-card>
+
+        <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Entra a tu cuenta</p>
+        <!-- Parte del logo-->
         <x-slot name="logo">
-            <a href="/">
+            <a href="">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>

@@ -1,8 +1,7 @@
 @extends('dashboard')
 
 @section('contenido')
-    {{-- hola mundo
-<a href="{{cliente.create}}">Crear</a> --}}
+
     <div class="mt-4 mx-4">
         <div class="md:col-span-2 xl:col-span-3">
             <h3 class="text-lg font-semibold">Lista de clientes</h3>
