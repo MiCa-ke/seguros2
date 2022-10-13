@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->strinG('apellido_pa');
+            $table->string('apellido_pa');
+            $table->string('apellido_ma');
+            $table->string('telefono');
+            $table->string('direccion');
+            $table->date('fecha_nacimiento');
             $table->timestamps();
         });
     }

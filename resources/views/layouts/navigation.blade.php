@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        Hola mundo
+                        Seguros Automovilisticos
                         {{-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> --}}
                     </a>
                 </div>
@@ -31,9 +31,9 @@
                     <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('ambiente.index')" :active="request()->routeIs('ambiente.index')">
+                    {{-- <x-nav-link :href="route('ambiente.index')" :active="request()->routeIs('ambiente.index')">
                         {{ __('Ambientes') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                 </div>
             </div>
 

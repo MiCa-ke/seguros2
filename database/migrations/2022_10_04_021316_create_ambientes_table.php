@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('sucursal')->nullable();
             $table->string('su_dir')->nullable();
             $table->string('su_ciudad')->nullable();
-            $table->string('su_pais')->nullable();
             $table->timestamps();
         });
     }

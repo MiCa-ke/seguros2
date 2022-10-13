@@ -1,5 +1,5 @@
 @extends('dashboard')
 
 @section('contenido')
-hola mundo
+Seguros de autos
 @endsection

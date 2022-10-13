@@ -40,6 +40,10 @@ class ClienteController extends Controller
         $cliente=new Cliente();
         $cliente->nombre = $r->nombre;
         $cliente->apellido_pa = $r->apellido;
+        $cliente->apellido_ma = $r->ape_materno;
+        $cliente->telefono = $r->tel;
+        $cliente->direccion = $r->direc;
+        $cliente->fecha_nacimiento = $r->fechanaci;
         $cliente->save();
         return redirect()->route('cliente.index');
     }

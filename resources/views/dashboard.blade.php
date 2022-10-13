@@ -2,7 +2,7 @@
     <x-slot name="header">
         <marquee behavior="" direction="left" scrolldelay="180">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Bienvenido') }} {{ Auth::user()->name }} | {{date('d-m-Y')}} | Es un día Soleado
+                {{ __('Bienvenido') }} {{ Auth::user()->name }} | {{date('d-m-Y')}} | Sistema de Seguros Automovilisticos
             </h2>
         </marquee>
     </x-slot>

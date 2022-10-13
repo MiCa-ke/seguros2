@@ -25,11 +25,11 @@
                         </div> --}}
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Nombre ó Razon Social</th>
+                                <th class="px-4 py-3">Nombre</th>
                                 <th class="px-4 py-3">Apellido</th>
-                                {{-- <th class="px-4 py-3">Telefono</th>
-                            <th class="px-4 py-3">Dirección</th>
-                            <th class="px-4 py-3">Correo</th> --}}
+                                <th class="px-4 py-3">Telefono</th>
+                                <th class="px-4 py-3">Dirección</th>
+                                <th class="px-4 py-3">Nacimiento</th>
                                 <th class="px-4 py-3">Acciones</th>
                             </tr>
                         </thead>
@@ -48,19 +48,12 @@
                                         </div>
                                         <div>
                                             <p class="font-semibold">{{ $p->nombre }} </p>
-                                            {{-- <p class="text-xs text-gray-600 dark:text-gray-400">{{ $p->empresa }}</p> --}}
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 text-sm">{{ $p->apellido_pa }}</td>
-                                    {{-- <td class="px-4 py-3 text-sm">
-                                        <p>{{ $p->telefono }}</p>
-                                    </td>
-                                    <td class="text-xs text-gray-600 dark:text-gray-400">
-                                        <p>{{ $p->direccion }}</p>
-                                    </td>
-                                    <td class="px-4 py-3 text-xs">
-                                        <p>{{ $p->correo }}</p>
-                                    </td> --}}
+                                    <td class="px-4 py-3 text-sm"><p>{{ $p->telefono }}</p></td>
+                                    <td class="text-xs text-gray-600 dark:text-gray-400"><p>{{ $p->direccion }}</p></td>
+                                    <td class="px-4 py-3 text-xs"><p>{{ $p->correo }}</p></td>
                                     <td class="px-4 py-3 text-xs">
                                         <button type="button"
                                             class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
