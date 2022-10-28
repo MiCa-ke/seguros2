@@ -24,7 +24,7 @@ class CreatePermissionTables extends Migration
         if ($teams && empty($columnNames['team_foreign_key'] ?? null)) {
             throw new \Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
-
+        //CRUD CREADO de permisos 10/27/2022
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->bigIncrements('id'); // permission id
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
@@ -33,7 +33,7 @@ class CreatePermissionTables extends Migration
 
             $table->unique(['name', 'guard_name']);
         });
-
+        //CRUD CREADO de roles 10/27/2022 falta eliminar
         Schema::create($tableNames['roles'], function (Blueprint $table) use ($teams, $columnNames) {
             $table->bigIncrements('id'); // role id
             if ($teams || config('permission.testing')) { // permission.testing is a fix for sqlite testing

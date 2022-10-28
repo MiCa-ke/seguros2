@@ -7,6 +7,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MarcarTurnoController;
 use App\Http\Controllers\PlaneController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TurnoController;
 
@@ -37,5 +38,6 @@ Route::resource('empleado', EmpleadoController::class);
 Route::resource('marcar', MarcarTurnoController::class);
 Route::resource('plan', PlaneController::class);
 Route::resource('rol', RoleController::class);
+Route::resource('permissions', PermissionController::class);
 Route::resource('servicio', ServicioController::class);
 Route::resource('cliente', ClienteController::class);

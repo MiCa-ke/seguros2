@@ -5,8 +5,13 @@
 <form action="{{route('cliente.store')}}" method="POST" >
     @csrf
 
+        <div class="max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-wide underline text-gray-900">Cliente</h1>
+            <p class="text-lg italic tracking-tight font-sans  ">Ingresar datos</p>
+        </div>
+
     @method('POST')
-    
+
     <div class="flex flex-col mt-2">
         <label for="nombre" class="hidden">Nombre</label>
         <input type="nombre" name="nombre" id="nombre" placeholder="Nombre"

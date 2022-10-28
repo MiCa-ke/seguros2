@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,72 +15,73 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('VistaRoles.index');
+        $roles = Role::paginate(10); //mostrame los datos de la tabla rol
+        // dd($roles);
+        $permisos = Permission::paginate(20);
+        return view('VistaRoles.index', compact('permisos', 'roles')); //retornamos la vista y le pasamos los datos de la tabla rol
+    }
+    public function create(){
+        $permissions = Permission::all()->pluck('name','id'); //obtenemos todos los permisos de la tabla permiso y los pasamos a una variable
+        // dd($permisos);
+        return view('VistaRoles.create', compact('permissions')); //retornamos la vista y le pasamos los datos de la variable permisos
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function store(Request $request){
+        // dd($request->all());
+        $role = Role::create($request->only('name')); //creamos un nuevo rol con los datos que nos lleguen del formulario
+        // dd($request->permissions);
+        $role->permissions()->sync($request->input('permissions',[])); //asignamos los permisos que nos lleguen del formulario
+        // dd($role);
+        return redirect()->route('rol.index'); //retornamos a la vista index
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+    public function edit($id){
+        $role = Role::find($id); //obtenemos el rol que nos llega por parametro
+        $permissions = Permission::all()->pluck('name','id'); //obtenemos todos los permisos de la tabla permiso y los pasamos a una variable
+        $role->load('permissions'); //cargamos los permisos del rol
+        // dd($role);
+        return view('VistaRoles.edit', compact('role', 'permissions')); //retornamos la vista y le pasamos los datos de la variable permisos
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
-    {
-        //
+    public function update($id,Request $request,Role $role){
+    $role = Role::find($id); //obtenemos el rol que nos llega por parametro
+    $role->update($request->only('name')); //actualizamos el rol con los datos que nos lleguen del formulario
+    $role->permissions()->sync($request->input('permissions',[])); //asignamos los permisos que nos lleguen del formulario
+    // dd($role);
+    return redirect()->route('rol.index'); //retornamos a la vista index
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Role $role)
-    {
-        //
+
+    public function destroy($id){
+        $Rol = Role::find($id);
+        $Rol->delete();
+        return redirect()->Route('rol.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Role $role)
-    {
-        //
+/////////////////////////////////////////////////////// metodos para asignar permisos a un rol
+    public function crearPermisos(){
+        return view('VistaRoles.crearPermisos');
     }
+    public function storePermisos(Request $request, Permission $p){
+        $p = Permission::create($request->only('name'));
+        return redirect()->Route('rol.index');
+    }
+    public function editPermisos($id){
+        $permiso = Permission::find($id);
+        return view('VistaRoles.editPermisos', compact('permiso'));
+    }
+    public function updatePermisos($id, Permission $p, Request $request){
+        $p = Permission::find($id);
+        // dd($request->all());
+        $p->update($request->only('name'));
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Role $role)
-    {
-        //
+        return redirect()->Route('rol.index');
+    }
+    public function deletePermisos($p){
+        $permiso = Permission::find($p);
+        $permiso->delete();
+        return redirect()->Route('rol.index');
     }
 }

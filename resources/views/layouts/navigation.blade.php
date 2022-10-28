@@ -23,7 +23,10 @@
                         {{ __('Planes') }}
                     </x-nav-link>
                     <x-nav-link :href="route('rol.index')" :active="request()->routeIs('rol.index')">
-                        {{ __('Roles y Permisos') }}
+                        {{ __('Roles') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
+                        {{ __('Permisos') }}
                     </x-nav-link>
                     <x-nav-link :href="route('servicio.index')" :active="request()->routeIs('servicio.index')">
                         {{ __('Servicios') }}
