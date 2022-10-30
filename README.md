@@ -64,3 +64,40 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Instalacion del proyecto
+
+-   ir a la ruta de xammp y ejecutar xammp
+-   abrir cmd desde donde se guardara el proyecto
+-   git clone https://github.com/MiCa-ke/seguros2.git
+-   composer install
+-   duplicar el archivo .env example
+-   cambiar nombre a .env
+-   php artisan key:generate
+
+-   composer require spatie/laravel-permission
+-   php artisan migrate:fresh --seed
+-   composer require laravel/socialite
+-   php artisan serve
+-   http://127.0.0.1:8000
+
+    # git
+
+    Bajar cambios primero (para que tus cambios se mantenga sigue estos pasos)
+
+    -   git add .
+    -   git commit -m "soy yo otraves"  // el nombre va en comillas
+    -   git pull origin main
+
+    Subir sus cambios al proyecto(para subir tus cambios sigue estos pasos)
+
+    -   git add .
+    -   git commit -m "soy yo"
+    -   git push origin main
+
+# Laravel ejemplos
+-   php artisan make:controller UserController
+-   php artisan make:model User
+-   php artisan make:seeder UsersSeeder
+-   php artisan make:migration create_nombre_table
+
