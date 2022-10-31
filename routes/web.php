@@ -39,5 +39,5 @@ Route::resource('marcar', MarcarTurnoController::class);
 Route::resource('plan', PlaneController::class);
 Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
-Route::resource('servicio', ServicioController::class);
+Route::resource('servicio', ServicioController::class)->names('servicios');
 Route::resource('cliente', ClienteController::class);

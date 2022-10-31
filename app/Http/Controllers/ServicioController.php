@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use App\Models\TipoSeguro;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -14,7 +15,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        return view('VistaServicios.index');
+        $tipoSeguros=TipoSeguro::all();
+        return view('VistaServicios.index',compact('tipoSeguros'));
     }
 
     /**
