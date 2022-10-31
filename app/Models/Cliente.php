@@ -17,8 +17,8 @@ class Cliente extends Model
         'fecha_nacimiento'
     ];
 
-    public function seguros()
+    /*public function seguros()
     {
         return $this->hasMany(Seguro::class);
-    }
+    }*/
 }

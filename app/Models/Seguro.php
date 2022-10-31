@@ -11,10 +11,10 @@ class Seguro extends Model
     protected $fillable=['descripcion','cliente_id','tipo_seguro_id'];
 
     //relación de 1 a mucho inversa
-    public function cliente(){
+    /*public function cliente(){
         return $this->belongsTo(Cliente::class);
-    }
+    }*/
     public function tipoSeguro(){
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(TipoSeguro::class);
     }
 }
