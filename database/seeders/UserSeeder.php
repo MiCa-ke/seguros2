@@ -28,10 +28,10 @@ class UserSeeder extends Seeder
         // ])->assignRole('dev');
 
         // User::factory(9)->create();
-        User::create([
+        /*User::create([
             'name'=>'Christian',
             'email'=>'christian@gmail.com',
             'password'=>bcrypt('12345678')
-        ])->assignRole('dev');
+        ])->assignRole('dev');*/
     }
 }
