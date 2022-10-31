@@ -138,7 +138,7 @@ class ServicioController extends Controller
 
         $seguro = Seguro::findOrFail($id);
         $request->validate([ 
-            'codigo' => "required|regex:/^[A-Z]+[-][0-9]+$/|unique:seguros,codigo,id",
+            'codigo' => "required|regex:/^[A-Z]+[-][0-9]+$/",
             'nombre' => 'required|string',
             'descripcion' => 'required|string',
             'tipo_seguro_id' => 'required|exists:tipo_seguros,id'

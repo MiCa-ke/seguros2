@@ -22,7 +22,7 @@
         <div class="flex flex-col mt-2">
             <label for="name" class="hidden">Código</label>
             <input type="nombre" name="codigo" id="codigo" placeholder="Código del seguro"
-                value="{{ $seguro->codigo }}"
+                value="{{ $seguro->codigo }}" readonly
                 class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" required/>
         </div>
         <div class="flex flex-col mt-2">

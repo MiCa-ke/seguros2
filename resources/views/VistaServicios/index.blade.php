@@ -52,7 +52,7 @@
                                     <td class="px-4 py-3 text-xs">
                                         <button type="button"
                                             class="px-2 py-1 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full">
-                                            <a href="{{ Route('servicio.show', $tp->nombre) }}">
+                                            <a href="{{ Route('servicio.show', $tp->id) }}">
                                                 VER
                                             </a></button>
                                         <button type="button"
