@@ -7,8 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\Api\BaseController as BaseController;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function login(Request $request)
     {
@@ -21,12 +22,18 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (! $user || ! Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
+            /*throw ValidationException::withMessages([
                 'email' => ['Las credenciales son incorrectas.'],
-            ]);
+            ]);*/
+            return response()->json([
+                'status' => false,
+                'message' => 'Entrada invalidad para email o password',
+                'error' => $request->errors()
+            ], 422);
         }
-
-        return $user->createToken($request->device_name)->plainTextToken;
+        $tokn=$user->createToken($request->device_name)->plainTextToken;
+        return $this->sendResponse($user, 'Usuario logeado exitosamente.',$tokn);
+        //return $user->createToken($request->device_name)->plainTextToken;
     }
 
     public function logout(Request $request)
