@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Events\BClienteCreateEvent;
+use App\Events\BClienteDestroyEvent;
+use App\Events\BClienteEditEvent;
+use App\Listeners\BClienteCreateListener;
+use App\Listeners\BClienteDestroyListener;
+use App\Listeners\BClienteEditListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +23,15 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        BClienteCreateEvent::class=> [
+            BClienteCreateListener::class,
+        ],
+        BClienteDestroyEvent::class=> [
+            BClienteDestroyListener::class,
+        ],
+        BClienteEditEvent::class=> [
+            BClienteEditListener::class,
         ],
     ];
 

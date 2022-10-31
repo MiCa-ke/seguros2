@@ -12,6 +12,8 @@
 
     @method('POST')
 
+    <input type="text" value="" name="cliente_id" hidden> 
+
     <div class="flex flex-col mt-2">
         <label for="nombre" class="hidden">Nombre</label>
         <input type="nombre" name="nombre" id="nombre" placeholder="Nombre"
