@@ -17,10 +17,12 @@ class TipoSeguroSeeder extends Seeder
     {
         $ts = [
             [
-                'descripcion' => 'Empresarial',
+                'nombre'=>'Empresarial',
+                'descripcion' => 'Tipo de seguro empresarial',
             ],
             [
-                'descripcion' => 'Personal',
+                'nombre'=>'Personal',
+                'descripcion' => 'Tipo de seguro personal',
             ]
         ];
         foreach ($ts as $t) {

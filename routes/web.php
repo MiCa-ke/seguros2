@@ -30,21 +30,23 @@ Route::get('/dashboard', function () {
     return view('VistaPrincipal.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
+Route::middleware(['auth'])->group(function () {
 
-Route::resource('ambiente', AmbienteController::class);
-Route::resource('empleado', EmpleadoController::class);
-Route::resource('marcar', MarcarTurnoController::class);
-Route::resource('plan', PlaneController::class);
-Route::resource('rol', RoleController::class);
-Route::resource('permissions', PermissionController::class);
-/**Servicio */
-Route::resource('servicio', ServicioController::class);
-Route::get('seguro/create/{id}',[ServicioController::class,'segurosCreate'])->name('seguro.create');
-Route::post('seguro',[ServicioController::class,'segurosStore'])->name('seguro.store');
-Route::get('seguro/{id}/edit',[ServicioController::class,'segurosEdit'])->name('seguro.edit');
-Route::put('seguro/{id}',[ServicioController::class,'segurosUpdate'])->name('seguro.update');
-Route::delete('seguro/{id}',[ServicioController::class,'segurosDestroy'])->name('seguro.destroy');
-/** */
-Route::resource('cliente', ClienteController::class);
+    Route::resource('ambiente', AmbienteController::class);
+    Route::resource('empleado', EmpleadoController::class);
+    Route::resource('marcar', MarcarTurnoController::class);
+    Route::resource('plan', PlaneController::class);
+    Route::resource('rol', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
+    /**Servicio */
+    Route::resource('servicio', ServicioController::class);
+    Route::get('seguro/create/{id}', [ServicioController::class, 'segurosCreate'])->name('seguro.create');
+    Route::post('seguro', [ServicioController::class, 'segurosStore'])->name('seguro.store');
+    Route::get('seguro/{id}/edit', [ServicioController::class, 'segurosEdit'])->name('seguro.edit');
+    Route::put('seguro/{id}', [ServicioController::class, 'segurosUpdate'])->name('seguro.update');
+    Route::delete('seguro/{id}', [ServicioController::class, 'segurosDestroy'])->name('seguro.destroy');
+    /** */
+    Route::resource('cliente', ClienteController::class);
+});

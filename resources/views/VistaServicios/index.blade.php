@@ -30,7 +30,7 @@
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">Nro</th>
-                                <th class="px-4 py-3">Descripcion</th>
+                                <th class="px-4 py-3">Nombre</th>
                                 <th class="px-4 py-3">Acciones</th>
                             </tr>
                         </thead>
@@ -52,7 +52,7 @@
                                     <td class="px-4 py-3 text-xs">
                                         <button type="button"
                                             class="px-2 py-1 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full">
-                                            <a href="{{ Route('servicio.show', $tp->id) }}">
+                                            <a href="{{ Route('servicio.show', $tp->nombre) }}">
                                                 VER
                                             </a></button>
                                         <button type="button"

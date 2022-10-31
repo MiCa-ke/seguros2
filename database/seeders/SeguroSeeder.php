@@ -17,19 +17,30 @@ class SeguroSeeder extends Seeder
     {
         $seguros = [
             [
-                'descripcion' => 'Automotor Coorporativo',
+                'codigo'=>'SPN-1',
+                'nombre'=>'Automotor Coorporativo',
+                'descripcion' => 'Todo lo que cubre el seguro Automotor Coorporativo',
                 'tipo_seguro_id'=>1
             ],
             [
-                'descripcion' => 'Transporte',
+                
+                'codigo'=>'SPN-2',
+                'nombre' => 'Transporte',
+                'descripcion' => 'Todo lo que cubre el seguro Transporte',
                 'tipo_seguro_id'=>1
             ],
             [
-                'descripcion' => 'Auto x Km',
+                
+                'codigo'=>'SPN-3',
+                'nombre' => 'Auto x Km',
+                'descripcion' => 'Todo lo que cubre el seguro Auto x Km',
                 'tipo_seguro_id'=>2
             ],
             [
-                'descripcion' => 'Automotor Vital',
+                
+                'codigo'=>'SPN-4',
+                'nombre' => 'Automotor Vital',
+                'descripcion' => 'Todo lo que cubre el seguro Automotor Vital',
                 'tipo_seguro_id'=>2
             ]
         ];

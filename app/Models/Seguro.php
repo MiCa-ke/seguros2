@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seguro extends Model
 {
     use HasFactory;
-    protected $fillable=['descripcion','cliente_id','tipo_seguro_id'];
+    protected $fillable=['codigo','nombre','descripcion','tipo_seguro_id'];
 
     //relación de 1 a mucho inversa
     /*public function cliente(){

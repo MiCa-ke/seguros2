@@ -39,11 +39,12 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'nombre' => 'required|string',
             'descripcion' => 'required|string'
         ]);
         $tp = TipoSeguro::create($request->all());
 
-        session()->flash('status','¡Tipo de servicio creado exitosamente!');
+        session()->flash('status', '¡Tipo de servicio creado exitosamente!');
         return redirect()->route('servicio.index');
     }
 
@@ -55,7 +56,7 @@ class ServicioController extends Controller
      */
     public function show($id)
     {
-        
+
         $tipoSeguro = TipoSeguro::findOrFail($id);
         return view('VistaServicios.show-seguros', compact('tipoSeguro'));
     }
@@ -82,10 +83,11 @@ class ServicioController extends Controller
     {
         $tipoSeguro = TipoSeguro::findOrFail($id);
         $request->validate([
+            'nombre' => 'required|string',
             'descripcion' => 'required|string'
         ]);
         $tipoSeguro->update($request->all());
-        session()->flash('status','¡Tipo de servicio actualizado exitosamente!');
+        session()->flash('status', '¡Tipo de servicio actualizado exitosamente!');
 
         return redirect()->route('servicio.index');
     }
@@ -100,7 +102,7 @@ class ServicioController extends Controller
     {
         $tp = TipoSeguro::findOrFail($id);
         $tp->delete();
-        session()->flash('eliminar','¡Se eliminó correctamente el Tipo de Servicio!');
+        session()->flash('eliminar', '¡Se eliminó correctamente el Tipo de Servicio!');
         return redirect()->route('servicio.index');
     }
 
@@ -111,12 +113,18 @@ class ServicioController extends Controller
     }
     public function segurosStore(Request $request)
     {
+
         $request->validate([
+            'codigo' => "required|regex:/^[A-Z]+[-][0-9]+$/|unique:seguros,codigo,id",
+            'nombre' => 'required|string',
             'descripcion' => 'required|string',
             'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
+        ], [
+            'codigo.unique' => 'Error código de seguro ya existe en la base de datos',
+            'codigo.regex' => 'Error el formato del código no es válido'
         ]);
         Seguro::create($request->all());
-        session()->flash('status','¡Servicio creado exitosamente!');
+        session()->flash('status', '¡Servicio creado exitosamente!');
 
         return redirect()->route('servicio.show', $request->tipo_seguro_id);
     }
@@ -129,20 +137,26 @@ class ServicioController extends Controller
     {
 
         $seguro = Seguro::findOrFail($id);
-        $request->validate([
+        $request->validate([ 
+            'codigo' => "required|regex:/^[A-Z]+[-][0-9]+$/|unique:seguros,codigo,id",
+            'nombre' => 'required|string',
             'descripcion' => 'required|string',
             'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
+        ], [
+            'codigo.unique' => 'Error código de seguro ya existe en la base de datos',
+            'codigo.regex' => 'Formato del código invalido, debe contener un número por lo menos'
         ]);
+
         $seguro->update($request->all());
-        
-        session()->flash('status','¡Servicio actualizado exitosamente!');
+
+        session()->flash('status', '¡Servicio actualizado exitosamente!');
         return redirect()->route('servicio.show', $request->tipo_seguro_id);
     }
     public function segurosDestroy($id)
     {
-           $seguro=Seguro::findOrFail($id);
-           $seguro->delete();
-           session()->flash('eliminar','¡Se eliminó correctamente el Servicio!');
+        $seguro = Seguro::findOrFail($id);
+        $seguro->delete();
+        session()->flash('eliminar', '¡Se eliminó correctamente el Servicio!');
         return redirect()->route('servicio.show', $seguro->tipoSeguro->id);
     }
 }

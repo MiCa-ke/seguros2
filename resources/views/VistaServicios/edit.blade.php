@@ -22,8 +22,13 @@
         </div>
         <div class="flex flex-col mt-2">
             <label for="name" class="hidden">Nombre del tipo de Seguro</label>
-            <input type="nombre" name="descripcion" id="nombre" value="{{ $tipoSeguro->descripcion }}"
-                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" />
+            <input type="nombre" name="nombre" id="nombre" placeholder="Nombre del tipo de seguro" value="{{$tipoSeguro->nombre}}"
+                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" required/>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="name" class="hidden">Descripción del tipo de Seguro</label>
+            <input type="nombre" name="descripcion" id="nombre" placeholder="Descripción del tipo de seguro" value="{{ $tipoSeguro->descripcion }}"
+                class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-50 font-semibold focus:border-blue-500 focus:outline-none" required/>
         </div>
         <button type="submit"
             class="md:w-32 bg-blue-600 dark:bg-gray-100 text-white dark:text-gray-800 font-bold py-3 px-6 rounded-lg mt-4 hover:bg-blue-500 dark:hover:bg-gray-200 transition ease-in-out duration-300">Guardar</button>

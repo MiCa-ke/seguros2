@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('seguros', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo');
+            $table->string('nombre');
             $table->string('descripcion');
             $table->foreignId('tipo_seguro_id')->references('id')->on('tipo_seguros');
             $table->timestamps();
