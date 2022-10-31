@@ -43,6 +43,7 @@ class ServicioController extends Controller
         ]);
         $tp = TipoSeguro::create($request->all());
 
+        session()->flash('status','¡Tipo de servicio creado exitosamente!');
         return redirect()->route('servicio.index');
     }
 
@@ -84,6 +85,8 @@ class ServicioController extends Controller
             'descripcion' => 'required|string'
         ]);
         $tipoSeguro->update($request->all());
+        session()->flash('status','¡Tipo de servicio actualizado exitosamente!');
+
         return redirect()->route('servicio.index');
     }
 
@@ -112,6 +115,8 @@ class ServicioController extends Controller
             'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
         ]);
         Seguro::create($request->all());
+        session()->flash('status','¡Servicio creado exitosamente!');
+
         return redirect()->route('servicio.show', $request->tipo_seguro_id);
     }
     public function segurosEdit($id)
@@ -128,6 +133,8 @@ class ServicioController extends Controller
             'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
         ]);
         $seguro->update($request->all());
+        
+        session()->flash('status','¡Servicio actualizado exitosamente!');
         return redirect()->route('servicio.show', $request->tipo_seguro_id);
     }
     public function segurosDestroy($id)

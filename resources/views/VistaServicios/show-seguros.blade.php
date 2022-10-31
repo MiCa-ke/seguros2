@@ -1,6 +1,12 @@
 @extends('dashboard')
 
 @section('contenido')
+    @if (session('status'))
+        <div
+            class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100  dark:bg-green-700 dark:text-green-100 rounded">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="mt-4 mx-4">
         <div class="md:col-span-2 xl:col-span-3">
             <h3 class="text-lg font-bold span-1">Tipo de Seguro - {{ $tipoSeguro->descripcion }}</h3>
