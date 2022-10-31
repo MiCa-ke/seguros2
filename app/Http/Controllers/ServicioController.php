@@ -42,7 +42,7 @@ class ServicioController extends Controller
             'descripcion' => 'required|string'
         ]);
         $tp = TipoSeguro::create($request->all());
-        
+
         return redirect()->route('servicio.index');
     }
 
@@ -54,8 +54,9 @@ class ServicioController extends Controller
      */
     public function show($id)
     {
+        
         $tipoSeguro = TipoSeguro::findOrFail($id);
-        return view('VistaServicios.show-servicios', compact('tipoSeguro'));
+        return view('VistaServicios.show-seguros', compact('tipoSeguro'));
     }
 
     /**
@@ -66,10 +67,9 @@ class ServicioController extends Controller
      */
     public function edit($id)
     {
-        $tipoSeguro=TipoSeguro::findOrFail($id);
-        return view('VistaServicios.edit',compact('tipoSeguro'));
+        $tipoSeguro = TipoSeguro::findOrFail($id);
+        return view('VistaServicios.edit', compact('tipoSeguro'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,9 +79,9 @@ class ServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tipoSeguro=TipoSeguro::findOrFail($id);
+        $tipoSeguro = TipoSeguro::findOrFail($id);
         $request->validate([
-            'descripcion'=>'required|string'
+            'descripcion' => 'required|string'
         ]);
         $tipoSeguro->update($request->all());
         return redirect()->route('servicio.index');
@@ -95,8 +95,45 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-        $tp=TipoSeguro::findOrFail($id);
+        $tp = TipoSeguro::findOrFail($id);
         $tp->delete();
         return redirect()->route('servicio.index');
+    }
+
+    public function segurosCreate($id)
+    {
+        $ts = TipoSeguro::findOrFail($id);
+        return view('VistaServicios.create-seguros', compact('ts'));
+    }
+    public function segurosStore(Request $request)
+    {
+        $request->validate([
+            'descripcion' => 'required|string',
+            'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
+        ]);
+        Seguro::create($request->all());
+        return redirect()->route('servicio.show', $request->tipo_seguro_id);
+    }
+    public function segurosEdit($id)
+    {
+        $seguro = Seguro::findOrFail($id);
+        return view('VistaServicios.edit-seguros', compact('seguro'));
+    }
+    public function segurosUpdate(Request $request, $id)
+    {
+
+        $seguro = Seguro::findOrFail($id);
+        $request->validate([
+            'descripcion' => 'required|string',
+            'tipo_seguro_id' => 'required|exists:tipo_seguros,id'
+        ]);
+        $seguro->update($request->all());
+        return redirect()->route('servicio.show', $request->tipo_seguro_id);
+    }
+    public function segurosDestroy($id)
+    {
+           $seguro=Seguro::findOrFail($id);
+           $seguro->delete();
+        return redirect()->route('servicio.show', $seguro->tipoSeguro->id);
     }
 }

@@ -41,6 +41,10 @@ Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
 /**Servicio */
 Route::resource('servicio', ServicioController::class);
-
+Route::get('seguro/create/{id}',[ServicioController::class,'segurosCreate'])->name('seguro.create');
+Route::post('seguro',[ServicioController::class,'segurosStore'])->name('seguro.store');
+Route::get('seguro/{id}/edit',[ServicioController::class,'segurosEdit'])->name('seguro.edit');
+Route::put('seguro/{id}',[ServicioController::class,'segurosUpdate'])->name('seguro.update');
+Route::delete('seguro/{id}',[ServicioController::class,'segurosDestroy'])->name('seguro.destroy');
 /** */
 Route::resource('cliente', ClienteController::class);

@@ -1,6 +1,7 @@
 <x-app-layout>
-    <!--js-->
-    @yield('js')
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <x-slot name="header">
         <marquee behavior="" direction="left" scrolldelay="180">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">

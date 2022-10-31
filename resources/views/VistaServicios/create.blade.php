@@ -3,7 +3,12 @@
 @section('contenido')
 <form action="{{route('servicio.store')}}" method="POST" >
     @csrf
-
+    <div class="relative w-full max-w-full flex-grow flex-1 text-right">
+        <a href="{{ route('servicio.index') }}"
+            class="bg-gray-800 dark:bg-gray-500 text-white active:bg-white-600 dark:text-gray-100 dark:active:text-gray-100 text-xs font-bold uppercase px-5 py-1 rounded outline-none focus:outline-none mr-3 mb-1 ease-linear transition-all duration-150">
+            <i class="fas fa-solid fa-arrow-left"></i>
+        </a>
+    </div>
     <div class="max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold tracking-wide underline text-gray-900">Tipo de Seguro</h1>
         <p class="text-lg italic tracking-tight font-sans  ">Ingresar datos</p>

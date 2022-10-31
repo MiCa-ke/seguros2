@@ -17,18 +17,21 @@
                             </div>
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Id</th>
+                                <th class="px-4 py-3">Nro</th>
                                 <th class="px-4 py-3">Descripcion</th>
                                 <th class="px-4 py-3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            @php
+                                $n = 1;
+                            @endphp
                             @forelse ($tipoSeguros as $tp)
-                                <tr
-                                    class="seleccionar bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400" id="{{$tp->id}}">
+                                <tr class="seleccionar bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400"
+                                    id="{{ $tp->id }}">
                                     <td class="px-4 py-3">
                                         <div>
-                                            <p class="font-semibold">{{ $tp->id }} </p>
+                                            <p class="font-semibold">{{ $n }} </p>
                                         </div>
                                     </td>
 
@@ -56,6 +59,9 @@
                                         </button>
                                     </td>
                                 </tr>
+                                @php
+                                    $n++;
+                                @endphp
                             @empty
                                 No hay tipos de seguro registrados
                             @endforelse
@@ -75,7 +81,7 @@
 
     <script>
         $(document).ready(function() {
-            
+
         });
     </script>
 @stop
