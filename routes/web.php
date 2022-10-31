@@ -42,7 +42,6 @@ Route::resource('marcar', MarcarTurnoController::class);
 Route::resource('plan', PlaneController::class);
 Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
-Route::resource('cliente', ClienteController::class);
 Route::get('pdf', [ClienteController::class, 'pdf'])->name('cliente.pdf');
 Route::get('bitacora', [ClienteController::class, 'bitacora'])->name('Bitacora.pdf');
 
