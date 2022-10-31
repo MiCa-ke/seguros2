@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoSeguro extends Model
 {
     use HasFactory;
-    protected $fillable=['descripcion'];
+    protected $fillable=['nombre','descripcion'];
 
     //relación de 1 a muchos
     public function seguros(){

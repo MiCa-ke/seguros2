@@ -1,8 +1,12 @@
 <x-app-layout>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <x-slot name="header">
         <marquee behavior="" direction="left" scrolldelay="180">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Bienvenido') }} {{ Auth::user()->name }} | {{date('d-m-Y')}} | Sistema de Seguros Automovilisticos
+                {{ __('Bienvenido') }} {{ Auth::user()->name }} | {{ date('d-m-Y') }} | Sistema de Seguros
+                Automovilisticos
             </h2>
         </marquee>
     </x-slot>
@@ -23,8 +27,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     
                     {{-- <img src="{{asset('img/img01.jpg')}}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" width="200" alt=""> --}}
-                {{-- </div>
+    {{-- </div>
             </div>
         </div>
-    </div> --}} 
+    </div> --}}
 </x-app-layout>
