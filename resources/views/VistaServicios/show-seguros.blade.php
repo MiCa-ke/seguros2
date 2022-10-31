@@ -7,6 +7,12 @@
             {{ session('status') }}
         </div>
     @endif
+    @if (session('eliminar'))
+        <div
+            class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100  dark:bg-red-700 dark:text-red-100 rounded">
+            {{ session('eliminar') }}
+        </div>
+    @endif
     <div class="mt-4 mx-4">
         <div class="md:col-span-2 xl:col-span-3">
             <h3 class="text-lg font-bold span-1">Tipo de Seguro - {{ $tipoSeguro->descripcion }}</h3>

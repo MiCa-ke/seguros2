@@ -1,12 +1,19 @@
 @extends('dashboard')
 
 @section('contenido')
-@if (session('status'))
-<div class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100  dark:bg-green-700 dark:text-green-100 rounded">
-    {{session('status')}}
-</div>    
-@endif
-<div class="mt-4 mx-4">
+    @if (session('status'))
+        <div
+            class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100  dark:bg-green-700 dark:text-green-100 rounded">
+            {{ session('status') }}
+        </div>
+    @endif
+    @if (session('eliminar'))
+        <div
+            class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100  dark:bg-red-700 dark:text-red-100 rounded">
+            {{ session('eliminar') }}
+        </div>
+    @endif
+    <div class="mt-4 mx-4">
         <div class="md:col-span-2 xl:col-span-3">
             <h3 class="text-lg font-semibold">Tipo de Serguro</h3>
         </div>

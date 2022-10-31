@@ -100,6 +100,7 @@ class ServicioController extends Controller
     {
         $tp = TipoSeguro::findOrFail($id);
         $tp->delete();
+        session()->flash('eliminar','¡Se eliminó correctamente el Tipo de Servicio!');
         return redirect()->route('servicio.index');
     }
 
@@ -141,6 +142,7 @@ class ServicioController extends Controller
     {
            $seguro=Seguro::findOrFail($id);
            $seguro->delete();
+           session()->flash('eliminar','¡Se eliminó correctamente el Servicio!');
         return redirect()->route('servicio.show', $seguro->tipoSeguro->id);
     }
 }
