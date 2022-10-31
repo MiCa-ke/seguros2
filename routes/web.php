@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AmbienteController;
 use App\Http\Controllers\EmpleadoController;
@@ -41,3 +43,5 @@ Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
 Route::resource('servicio', ServicioController::class);
 Route::resource('cliente', ClienteController::class);
+Route::get('pdf', [ClienteController::class, 'pdf'])->name('cliente.pdf');
+Route::get('bitacora', [ClienteController::class, 'bitacora'])->name('Bitacora.pdf');

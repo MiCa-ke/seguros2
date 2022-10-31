@@ -15,6 +15,12 @@
                                 <a href="{{ Route('cliente.create') }}"
                                     class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                                     Nuevo Cliente</a>
+                                <a href="{{ Route('cliente.pdf') }}"
+                                    class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                    Reporte</a>
+                                <a href="{{ Route('Bitacora.pdf') }}"
+                                    class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                    Bitacora</a>
                             </div>
                             {{-- <div class="relative w-full max-w-full flex-grow flex-1 text-right">
                             <a href="{{ Route('cliente.pdf') }}"
