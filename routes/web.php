@@ -3,11 +3,9 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AmbienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MarcarTurnoController;
-use App\Http\Controllers\PlaneController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ServicioController;
@@ -36,15 +34,12 @@ require __DIR__ . '/auth.php';
 
 Route::middleware(['auth'])->group(function () {
 
-Route::resource('ambiente', AmbienteController::class);
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('marcar', MarcarTurnoController::class);
-Route::resource('plan', PlaneController::class);
 Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
 Route::get('pdf', [ClienteController::class, 'pdf'])->name('cliente.pdf');
 Route::get('bitacora', [ClienteController::class, 'bitacora'])->name('Bitacora.pdf');
-
     /**Servicio */
     Route::resource('servicio', ServicioController::class);
     Route::get('seguro/create/{id}', [ServicioController::class, 'segurosCreate'])->name('seguro.create');
@@ -53,5 +48,5 @@ Route::get('bitacora', [ClienteController::class, 'bitacora'])->name('Bitacora.p
     Route::put('seguro/{id}', [ServicioController::class, 'segurosUpdate'])->name('seguro.update');
     Route::delete('seguro/{id}', [ServicioController::class, 'segurosDestroy'])->name('seguro.destroy');
     /** */
-    Route::resource('cliente', ClienteController::class);
+Route::resource('cliente', ClienteController::class);
 });

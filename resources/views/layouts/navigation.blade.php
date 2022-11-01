@@ -19,9 +19,9 @@
                     <x-nav-link :href="route('empleado.index')" :active="request()->routeIs('empleado.index')">
                         {{ __('Empleado') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('plan.index')" :active="request()->routeIs('plan.index')">
+                    {{-- <x-nav-link :href="route('plan.index')" :active="request()->routeIs('plan.index')">
                         {{ __('Planes') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('rol.index')" :active="request()->routeIs('rol.index')">
                         {{ __('Roles') }}
                     </x-nav-link>

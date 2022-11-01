@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plane;
+use App\Models\auto;
 use Illuminate\Http\Request;
 
-class PlaneController extends Controller
+class AutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PlaneController extends Controller
      */
     public function index()
     {
-        return view('VistaPlanes.index');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class PlaneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Plane  $plane
+     * @param  \App\Models\auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function show(Plane $plane)
+    public function show(auto $auto)
     {
         //
     }
@@ -52,10 +52,10 @@ class PlaneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Plane  $plane
+     * @param  \App\Models\auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plane $plane)
+    public function edit(auto $auto)
     {
         //
     }
@@ -64,10 +64,10 @@ class PlaneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Plane  $plane
+     * @param  \App\Models\auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plane $plane)
+    public function update(Request $request, auto $auto)
     {
         //
     }
@@ -75,10 +75,10 @@ class PlaneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Plane  $plane
+     * @param  \App\Models\auto  $auto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plane $plane)
+    public function destroy(auto $auto)
     {
         //
     }

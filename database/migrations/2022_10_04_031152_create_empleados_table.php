@@ -27,13 +27,6 @@ return new class extends Migration
                 ->onDelete('Cascade')
                 ->onUpdate('Cascade');
 
-            $table->unsignedBigInteger('id_ambiente')->nullable();
-            $table->foreign('id_ambiente')
-                ->references('id_ambiente')
-                ->on('ambientes')
-                ->onDelete('Cascade')
-                ->onCascade('Cascade');
-
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')
                 ->references('id')
