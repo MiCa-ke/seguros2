@@ -79,6 +79,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 -   php artisan migrate:fresh --seed
 -   composer require laravel/socialite
 -   php artisan serve
+-   npm run dev      //permite correr los cambios en tiempo real
 -   http://127.0.0.1:8000
 
     # git
