@@ -41,3 +41,8 @@ Route::resource('rol', RoleController::class);
 Route::resource('permissions', PermissionController::class);
 Route::resource('servicio', ServicioController::class);
 Route::resource('cliente', ClienteController::class);
+
+Route::get('/home', [App\Http\Controllers\Api\NotificationsController::class, 'index'])->name('home');
+Route::post('/save-token', [App\Http\Controllers\Api\NotificationsController::class, 'saveToken'])->name('save-token');
+Route::post('/send-notification', [App\Http\Controllers\Api\NotificationsController::class, 'sendNotification'])->name('send.notification');
+
