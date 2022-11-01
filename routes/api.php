@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/auth/login', [AuthController::class,'login']);
 Route::post('/auth/logout', [AuthController::class,'logout']);
-
+Route::put('/auth/updatenot', [AuthController::class,'updateNotification']);

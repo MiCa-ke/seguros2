@@ -20,15 +20,17 @@ class NotificationsController extends Controller
     public function saveToken(Request $request)
     {
         //auth()->user()->update(['device_token'=>$request->token]);
-        //auth()->user()->update(['notifications_token'=>$request->token]);
+        auth()->user()->update(['notifications_token'=>$request->token]);
         return response()->json(['token saved successfully.']);
     }
 
     public function sendNotification(Request $request)
     {
         //$firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
-        $firebaseToken=[
+        /*$firebaseToken=[
         'cJJXZxbSSnGf2CLZbDj32_:APA91bGeNCklYIi6ZXoIUO5j7XoWdAXm-vT2QlXMMuKoPJVCZn3H9fPmiP3yt3hINL0jJR2oICUOwT0Brf7RPi3PiKSnyr40_b62LQ6upW1SHl33bbUk2dhgVqvXHNcUZfz3PTFr7x3Q'];
+        */
+        $firebaseToken=['cSObltjfRjq1KZYz2mh5ug:APA91bGiiGUCYmp4hDt0OguP8U4dm0c4pXYm4zIZep6yW1UHsKUnv3PmQQozN6p6SqYE8x4rOLobS5HgRrdJNRQj0AAwKSjpFub6y6l5Ogiq_hB5qc3kynLbNCpk20AUAnkYMwNHw9oK'];
         $SERVER_API_KEY = 'AAAAor5MgwI:APA91bFCFKxMfvxqdaDzT16XLo7wU_Wp__t_FGpavMqiSmw1sty1fhffWSa9ezrg1rrTHLX6Ur_idSvIQXah4fwBCcxE8BDFndTq8OeEaEJ4TNblVahgeVmuBCKihRcDBVVZckdc77fi';
 
         $data = [
